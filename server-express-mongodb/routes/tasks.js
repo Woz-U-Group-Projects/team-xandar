@@ -9,8 +9,12 @@ router.get("/", function(req, res, next) {
 router.post("/", function(req, res, next) {
   let newTask = new TaskModel();
   newTask.name = req.body.name;
-  newTask.complete = req.body.complete;
-  newTask.save().then(task => res.json(task));
+  newTask.complete = false;
+  newTask.save()
+  .then(task => res.json(task))
+  .catch(error => {
+    console.error(error);
+  });
 });
 
 router.delete("/:id", function(req, res, next) {

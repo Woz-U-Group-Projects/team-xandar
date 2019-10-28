@@ -5,7 +5,7 @@ var logger = require("morgan");
 var cors = require("cors");
 var mongoose = require("mongoose");
 
-var tasksRouter = require("./routes/tasks");
+var customersRouter = require("./routes/customers");
 
 var app = express();
 
@@ -16,11 +16,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use("/tasks", tasksRouter);
+app.use("/customers", customersRouter);
 
 //var mongoDB = "mongodb://127.0.0.1/database";
 var mongoDB =
-  "mongodb+srv://ammon:Password1%21@cluster0-lhvh5.mongodb.net/test?retryWrites=true&w=majority";
+  "mongodb+srv://dbuser2:Password2!@cluster0-ovcqw.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;

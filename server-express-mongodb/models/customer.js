@@ -3,19 +3,20 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var TaskSchema = new Schema({
+var CustomerSchema = new Schema({
   name: { type: String, required: true },
-  complete: { type: Boolean, required: true }
+  email: { type: String, required: true },
+  phone: { type: Number, required: true}
 });
 
 // Duplicate the ID field.
-TaskSchema.virtual("id").get(function() {
+CustomerSchema.virtual("id").get(function() {
   return this._id.toHexString();
 });
 
 // Ensure virtual fields are serialised.
-TaskSchema.set("toJSON", {
+CustomerSchema.set("toJSON", {
   virtuals: true
 });
 
-module.exports = mongoose.model("Task", TaskSchema);
+module.exports = mongoose.model("Customer", CustomerSchema);

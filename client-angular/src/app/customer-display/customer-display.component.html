@@ -1,0 +1,12 @@
+<h3>E-Blackbook</h3>
+<input [(ngModel)]="newCustomer.name">
+<label>Full Name</label><br>
+<input [(ngModel)]="newCustomer.email" />
+<label>Email</label><br>
+<input [(ngModel)]="newCustomer.phone" />
+<label>Phone</label><br>
+<button (click)="addCustomer()">Add</button><br>
+
+<div>
+    <p>{{customer.id + 1}}. {{customer.name}}: {{customer.email}}: {{customer.phone}}</p>
+</div>

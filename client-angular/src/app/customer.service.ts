@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient} from "@angular/common/http";
 import { Customer } from "./models/customers";
 import { Observable } from "rxjs";
 
@@ -15,6 +15,7 @@ export class CustomerService {
 
   // Express will use port 3000
   apiUrl: string = "http://localhost:3000/customers";
+  handleError: any;
 
   constructor(private http: HttpClient) {}
 
@@ -25,4 +26,8 @@ export class CustomerService {
   addCustomer(Customer): Observable<Customer> {
     return this.http.post<Customer>(this.apiUrl, Customer);
   }
+
+  deleteCustomer (id: number): Observable<{}> {
+    const url = `${this.apiUrl}/${id}`; 
+    return this.http.delete(url)}
 }

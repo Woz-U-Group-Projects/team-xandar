@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { CustomerService } from "../customer.service";
 import { Customer } from "../models/customers";
 
@@ -21,6 +21,10 @@ export class CustomerDisplayComponent implements OnInit {
       this.getCustomers();
       this.newCustomer = new Customer();
     });
+  }
+
+  deleteCustomer() {
+    this.customerService.deleteCustomer(Customer.id).subscribe();
   }
 
   ngOnInit() {

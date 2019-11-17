@@ -1,6 +1,8 @@
 import { Component, OnInit} from "@angular/core";
 import { CustomerService } from "../customer.service";
-import { Customer } from "../models/customers";
+import { Customer } from "../models/customers"
+
+var customer = require("server-express-mongodb\models\customer.js");
 
 @Component({
   selector: "app-customer-display",
@@ -24,7 +26,7 @@ export class CustomerDisplayComponent implements OnInit {
   }
 
   deleteCustomer() {
-    this.customerService.deleteCustomer(Customer.id).subscribe();
+    this.customerService.deleteCustomer(customer.id).subscribe();
   }
 
   ngOnInit() {

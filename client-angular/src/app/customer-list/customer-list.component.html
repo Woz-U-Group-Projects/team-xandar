@@ -1,0 +1,20 @@
+<mat-accordion multi="false" class="customerList">
+  <mat-expansion-panel *ngFor="let customer of Customers">
+    <mat-expansion-panel-header style="font-size: 1.5em;">
+      {{customer.name}}
+    </mat-expansion-panel-header>
+    <table>
+        <tr>
+          <td><img src="./assets/images/icons/call.svg" style="margin-right: 20px;"></td>
+          <td style="font-size: 1.5em;">{{customer.phone}}</td>
+          <td width="10%"></td>
+          <td><img src="./assets/images/icons/email.svg" style="margin-right: 20px;"></td>
+          <td style="font-size: 1.5em;">{{customer.email}}</td>
+        </tr>
+    </table>
+    <mat-action-row>
+      <button mat-button color="primary">EDIT</button>
+      <button mat-button color="warn">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

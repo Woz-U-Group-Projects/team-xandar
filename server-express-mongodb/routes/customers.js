@@ -4,7 +4,7 @@ var CustomerModel = require("../models/customer");
 
 router.get("/", function(req, res, next) {
   CustomerModel.find().then(customers => res.json(customers));
-});
+ });
 
 router.post("/", function(req, res, next) {
   let newCustomer = new CustomerModel();

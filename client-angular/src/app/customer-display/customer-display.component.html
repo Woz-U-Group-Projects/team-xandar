@@ -1,12 +1,38 @@
-<h3>E-Blackbook</h3>
-<input [(ngModel)]="newCustomer.name">
-<label>Full Name</label><br>
-<input [(ngModel)]="newCustomer.email" />
-<label>Email</label><br>
-<input [(ngModel)]="newCustomer.phone" />
-<label>Phone</label><br>
-<button (click)="addCustomer()">Add</button><br>
+<mat-card>
+<mat-form-field>
+<input matInput  placeholder="Enter Full Name" [(ngModel)]="newCustomer.name">
+</mat-form-field>
 
-<div>
-    <p>{{customer.id + 1}}. {{customer.name}}: {{customer.email}}: {{customer.phone}}</p>
-</div>
+<mat-form-field>
+<input matInput type="text" placeholder="Enter Email Address" [(ngModel)]="newCustomer.email"/>
+</mat-form-field>
+
+<mat-form-field>
+<input matInput  placeholder="Enter Phone Number" [(ngModel)]="newCustomer.phone" />
+</mat-form-field>
+
+
+<button mat-raised-button color="primary" (click)="addCustomer()">Add</button><br>
+</mat-card>
+<br>
+<mat-accordion multi="false" class="customerList">
+    <mat-expansion-panel *ngFor="let customer of Customers">
+      <mat-expansion-panel-header style="font-size: 1.5em;">
+        {{customer.name}}
+      </mat-expansion-panel-header>
+      <table>
+          <tr>
+            <td><img src="./assets/images/icons/call.svg" style="margin-right: 20px;"></td>
+            <td style="font-size: 1.5em;">{{customer.phone}}</td>
+            <td width="10%"></td>
+            <td><img src="./assets/images/icons/email.svg" style="margin-right: 20px;"></td>
+            <td style="font-size: 1.5em;">{{customer.email}}</td>
+          </tr>
+      </table>
+      <mat-action-row>
+        <button mat-button color="primary">EDIT</button>
+        <button mat-button color="warn">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
